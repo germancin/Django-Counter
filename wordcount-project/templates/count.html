@@ -1,0 +1,26 @@
+<h1>Count Page</h1>
+<a href="{% url 'home-page'%}"> Go back Home </a>
+<br/>
+
+<h2>There are {{ wordcount }} words</h2>
+
+<br/>
+
+<h2>Full Text {{ fulltext }}</h2>
+
+<br/>
+
+<h2>Words Count</h2>
+
+{% for word, totalCount in sortedWords %}
+    <div style="font-size:18px">
+        {% if totalCount < 2 %}
+            <strong>{{word}}</strong> appears just <strong>once</strong> 
+        {% else %}
+            <strong>{{word}}</strong> - <strong>{{totalCount}}</strong> times 
+            <!-- {{word|length}} -->
+        {% endif %}
+    </div>
+{% endfor %}
+
+
